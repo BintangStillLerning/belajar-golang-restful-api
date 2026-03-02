@@ -1,0 +1,34 @@
+### Get All categories
+GET http://localhost:6767/api/categories
+Accept: application/json
+
+### Create New Category
+POST http://localhost:6767/api/categories
+X-
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": ""
+}
+
+### Get Category By Id
+GET http://localhost:6767/api/categories/1500
+Accept: application/json
+
+### Update Category By id
+PUT http://localhost:6767/api/categories/15
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "mpruyabis"
+}
+
+
+### Delete Category By id
+DELETE http://localhost:6767/api/categories/15
+Accept: application/json
+
+
+
