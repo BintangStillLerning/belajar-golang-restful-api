@@ -45,6 +45,6 @@ func main() {
 	if port == ""{
 		port = "6767"
 	}
-	http.ListenAndServe(":6767" + port, middleware.NewAuthMiddleware(router))
+	http.ListenAndServe(":" + port, middleware.NewAuthMiddleware(router))
 	helper.PanicIfError(err)
 }
