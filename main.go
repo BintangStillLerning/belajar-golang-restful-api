@@ -43,7 +43,9 @@ server := http.Server{
 	Addr:    ":" + port,
 	Handler: middleware.NewAuthMiddleware(router),
 }
-
+router.GET("/", func(writer http.ResponseWriter, request *http.Request, params httprouter.Params) {
+	writer.Write([]byte("API is Running"))
+})
 err := server.ListenAndServe()
 helper.PanicIfError(err)
 }
