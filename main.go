@@ -34,17 +34,16 @@ func main() {
 
 	router.PanicHandler = exception.ErrorHandler
 
-	server := http.Server{
-		Addr: "localhost:6767",
-		Handler: middleware.NewAuthMiddleware(router),
-	}
+port := os.Getenv("PORT")
+if port == "" {
+	port = "8080"
+}
 
-	err := server.ListenAndServe()
+server := http.Server{
+	Addr:    ":" + port,
+	Handler: middleware.NewAuthMiddleware(router),
+}
 
-	port := os.Getenv("PORT")
-	if port == ""{
-		port = "6767"
-	}
-	http.ListenAndServe(":" + port, middleware.NewAuthMiddleware(router))
-	helper.PanicIfError(err)
+err := server.ListenAndServe()
+helper.PanicIfError(err)
 }
